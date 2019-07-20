@@ -1,0 +1,39 @@
+version: '2'
+services:
+  sa-nginx:
+    image: nginx
+    networks:
+      sa_net:
+        ipv4_address: 172.9.30.6
+    volumes:
+      - './nginx/site.dev.conf:/etc/nginx/conf.d/site.dev.conf'
+      - "../:/home/app/docroot"
+    ports:
+      - "127.0.34.2:3280:8800"
+  sa-php-72:
+    image: pelso/php:7.2
+    hostname: dev-sa-php-72
+    tty: true
+    volumes:
+      - "../:/home/app/docroot"
+    networks:
+      sa_net:
+        ipv4_address: 172.9.30.2
+  sa-db:
+    image: percona/percona-server:5.7
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+    ports:
+      - "127.0.34.3:3233:3306" # to reach from your machine: mysql -h127.0.34.3 -P3233 -uroot -proot
+    networks:
+      sa_net:
+        ipv4_address: 172.9.30.3
+
+networks:
+  sa_net:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+      - subnet: 172.9.30.0/24
+        gateway: 172.9.30.1

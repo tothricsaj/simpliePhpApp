@@ -1,3 +1,8 @@
 <?php
+require '../src/Model/DbHandler.php';
 
-echo 'Hello RabIt';
+$db = DbHandler::getInstance();
+
+echo '<br />Hello RabIt';
+
+

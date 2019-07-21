@@ -8,5 +8,69 @@ html, body {
     padding: 0;
     overflow-x: hidden;
 
-    background: grey;
+    background: darkslateblue;
+}
+
+h2 {
+    margin-left: 50px;
+    color: lightskyblue;
+}
+
+.lister,
+.userList,
+.adList {
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.lister a:first-of-type {
+    margin-bottom: 50px;
+}
+
+.lister a {
+    width: 120px;
+    border: 1px solid lightblue;
+    padding: 10px;
+    text-decoration: none;
+    text-align: center;
+    color: lightblue;
+}
+
+.lister a:hover {
+    background-color: lightblue;
+    color: grey;
+}
+
+.userList {
+    justify-content: flex-start;
+}
+
+.userList p {
+    width: 70%;
+    border-bottom: 1px solid lightblue;
+    color: lightskyblue;
+}
+
+.adList div {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 1px solid lightblue;
+    color: lightblue;
+}
+
+#adHead {
+    background: lightblue;
+    color: darkslateblue;
 }

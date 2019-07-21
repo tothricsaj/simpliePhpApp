@@ -29,6 +29,6 @@ class AdList implements SaList
             $adDOM = $adDOM.'<div><p>'.$ad[2].'</p>'.'<p>'.$usrName[name].'</p>'.'</div>';
         }
 
-        echo '<div class=adList>'.  $adDOM;
+        echo '<div class=adList><div id="adHead"><p>Advert</p><p>Owner</p></div>'.  $adDOM;
     }
 }

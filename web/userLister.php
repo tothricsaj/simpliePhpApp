@@ -13,5 +13,5 @@ $usr->setData();
 <div>
     <?php $usr->showList(); ?>
 </div>
-<a href="/">Go back</a>
+<a href="/" style="margin-left: 70px; color: lightskyblue;">Go back</a>
 

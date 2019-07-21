@@ -26,7 +26,7 @@ class AdList implements SaList
 
         foreach ($this->adverList as $ad) {
             $usrName = $this->dbHandler->getOne('SELECT name FROM Users WHERE ID='.$ad[1]);
-            $adDOM = $adDOM.'<div><p>'.$ad[2].'</p>'.'<p>'.$usrName[name].'</p>'.'</div><hr />';
+            $adDOM = $adDOM.'<div><p>'.$ad[2].'</p>'.'<p>'.$usrName[name].'</p>'.'</div>';
         }
 
         echo '<div class=adList>'.  $adDOM;

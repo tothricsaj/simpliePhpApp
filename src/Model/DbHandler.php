@@ -19,7 +19,6 @@ class DbHandler
         try {
             $this->conn = new PDO("mysql:host=$this->server; port=$this->port; dbname=$this->db", 'root', 'root');
             $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            echo 'We are in<br />';
         } catch (PDOException $e) {
             echo "Something went wrong: ". $e->getMessage();
         }

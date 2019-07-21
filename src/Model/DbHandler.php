@@ -1,5 +1,10 @@
 <?php
 
+namespace Sa\Model\dbh;
+
+use PDO;
+use PDOException;
+
 class DbHandler
 {
     private static $instance = null;
@@ -30,8 +35,16 @@ class DbHandler
         return self::$instance;
     }
 
-    public function getConection(): PDO
+    public function getConnection(): PDO
     {
         return $this->conn;
+    }
+
+    public function getAQuery($query)
+    {
+       $sql = $this->conn->prepare($query);
+       $sql->execute();
+
+       return $sql->fetchAll();
     }
 }

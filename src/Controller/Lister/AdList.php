@@ -1,15 +1,34 @@
 <?php
-use SaList;
+namespace Sa\Lister\adLister;
+
+use listInterface\SaList;
+use Sa\Model\dbh\DbHandler;
 
 class AdList implements SaList
 {
+    private $adverList;
+    private $dbHandler;
+
+    public function __construct()
+    {
+        $this->dbHandler = DbHandler::getInstance();
+    }
+
     public function setData()
     {
-        // TODO: Implement setData() method.
+
+        $this->adverList = $this->dbHandler->getAQuery('SELECT * FROM Advertisments');
     }
 
     public function showList()
     {
-        // TODO: Implement showList() method.
+        $adDOM = '';
+
+        foreach ($this->adverList as $ad) {
+            $usrName = $this->dbHandler->getOne('SELECT name FROM Users WHERE ID='.$ad[1]);
+            $adDOM = $adDOM.'<div><p>'.$ad[2].'</p>'.'<p>'.$usrName[name].'</p>'.'</div><hr />';
+        }
+
+        echo '<div class=adList>'.  $adDOM;
     }
 }

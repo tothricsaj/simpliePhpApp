@@ -47,4 +47,12 @@ class DbHandler
 
        return $sql->fetchAll();
     }
+
+    public function getOne($query)
+    {
+       $sql = $this->conn->prepare($query);
+       $sql->execute();
+
+       return $sql->fetch(PDO::FETCH_ASSOC);
+    }
 }
